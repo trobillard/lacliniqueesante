@@ -5,12 +5,7 @@
 
 // Declare the Function
 // This Function is to bring a Title in our Html using the DOM
-function populateHeader() {
-  const header = document.querySelector('header');
-  const myH1 = document.createElement('h1');
-  myH1.innerText = 'Test Result'
-  header.appendChild(myH1);
-}
+
 
 // Using fetch API to get my data JSON
 function updateChart(){
@@ -31,12 +26,12 @@ async function fetchData() {
 }
 
 // This fonction is to get the data that we need for the chart
-fetchData().then(datapoints => {
+fetchData().then(arr => {
     // This part is not working
-      const ponderation = datapoints.ponderation.map(
-        function(index){
-          return index.ponderation;
-        })
+      // const ponderation = datapoints.ponderation.map(
+      //   function(index){
+      //     return index.ponderation;
+      //   })
       console.log(arr);
       // Get my categories on the x axes
       myChart.config.data.labels = arr;
@@ -87,3 +82,10 @@ const myChart = new Chart(ctx, {
         },
     }
 });
+
+function populateHeader() {
+  const header = document.querySelector('header');
+  const myH1 = document.createElement('h1');
+  myH1.innerText = 'Test Result'
+  header.appendChild(myH1);
+}
